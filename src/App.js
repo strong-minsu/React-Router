@@ -6,6 +6,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import "antd/dist/antd.css";
+import AppLayout from "./pages/Layoutex";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/profile" element={<Profile />}>
         <Route path=":id" element={<Profile />} />
       </Route>
+      <Route path="/layout" element={<AppLayout />} />
       <Route path="/about" element={<About />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
