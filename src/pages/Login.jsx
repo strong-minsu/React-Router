@@ -1,4 +1,5 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
 
@@ -76,7 +77,7 @@ const Login = () => {
           >
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          Or <Link to="/register">register now!</Link>
         </Form.Item>
       </Form>
     </div>
