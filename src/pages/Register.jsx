@@ -92,7 +92,7 @@ const Register = () => {
         onFinish={Finish}
         scrollToFirstError
         style={style}
-        autocomplete="off"
+        autoComplete="off"
       >
         <Form.Item
           name="email"
