@@ -64,8 +64,8 @@ const Login = () => {
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-
-          <a className="login-form-forgot" href="">
+          {/* 주소 수정하기 */}
+          <a className="login-form-forgot" href="/">
             Forgot password
           </a>
         </Form.Item>

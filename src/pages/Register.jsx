@@ -1,7 +1,6 @@
-import { AutoComplete, Button, Checkbox, Form, Input } from "antd";
-import React, { useState } from "react";
+import { Button, Checkbox, Form, Input } from "antd";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -45,25 +44,18 @@ const sort = {
   alignItems: "center",
 };
 
-const USEREMAIL_KEY = "useremail";
-const USERNAME_KEY = "usernickname";
-const USERPASSWORD_KEY = "password";
-const USERINTRO_KEY = "intro";
-
 const Register = () => {
   const [form] = Form.useForm();
   let navigate = useNavigate();
   const Finish = (values) => {
+    //회원가입 정보 보내기 (일단 백 서버 연동하면 다시 확인 필요)
     console.log("Received values of form: ", values);
-    const useremail = values.email;
-    const usernickname = values.nickname;
-    const password = values.password;
-    const intro = values.intro;
-
-    localStorage.setItem(USEREMAIL_KEY, useremail);
-    localStorage.setItem(USERNAME_KEY, usernickname);
-    localStorage.setItem(USERPASSWORD_KEY, password);
-    localStorage.setItem(USERINTRO_KEY, intro);
+    fetch("http://192.168.56.1:8080/register", {
+      method: "POST",
+      body: JSON.stringify(values),
+    })
+      .then((response) => response.json())
+      .then((result) => console.log("결과: ", result));
     navigate("/");
   };
 
@@ -176,8 +168,9 @@ const Register = () => {
           ]}
           {...tailFormItemLayout}
         >
+          {/* 주소 수정하기 */}
           <Checkbox>
-            I have read the <a href="">agreement</a>
+            I have read the <a href="/">agreement</a>
           </Checkbox>
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
