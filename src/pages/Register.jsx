@@ -46,6 +46,7 @@ const sort = {
 };
 
 const Register = () => {
+  // const [popup, setPopup] = useState(false);
   const [form] = Form.useForm();
   let navigate = useNavigate();
   const Finish = (values) => {
@@ -58,38 +59,37 @@ const Register = () => {
     //   .then((response) => response.json())
     //   .then((result) => console.log("결과: ", result));
 
-    axios
-      .post("http://localhost:8080/signup", {
-        userId: values.nickname,
-        password: values.password,
-        email: values.email,
-      })
-      .then(function (response) {
-        if (response.data.code === 0) {
-          setPopup({
-            open: true,
-            title: "Confirm",
-            message: "Join Success!",
-            callback: function () {
-              navigate("/login");
-            },
-          });
-        } else {
-          let message = response.data.message;
-          if (response.data.code === 10000) {
-            message =
-              "User ID is duplicated. Please enter a different User ID. ";
-          }
-          setPopup({
-            open: true,
-            title: "Error",
-            message: message,
-          });
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    axios.post("http://localhost:8080/signup", {
+      userId: values.nickname,
+      password: values.password,
+      email: values.email,
+    });
+    // .then(function (response) {
+    //   if (response.data.code === 0) {
+    //     setPopup({
+    //       open: true,
+    //       title: "Confirm",
+    //       message: "Join Success!",
+    //       callback: function () {
+    //         navigate("/login");
+    //       },
+    //     });
+    //   } else {
+    //     let message = response.data.message;
+    //     if (response.data.code === 10000) {
+    //       message =
+    //         "User ID is duplicated. Please enter a different User ID. ";
+    //     }
+    //     setPopup({
+    //       open: true,
+    //       title: "Error",
+    //       message: message,
+    //     });
+    //   }
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
     navigate("/");
   };
