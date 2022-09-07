@@ -8,39 +8,22 @@ import Login from "./pages/Login";
 import "antd/dist/antd.min.css";
 import AppLayout from "./pages/Layoutex";
 import Register from "./pages/Register";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 function App() {
-  // const { override } = require("customize-cra");
-  // const addLessLoader = require("customize-cra-less-loader");
-
-  // module.exports = override(
-  //   addLessLoader({
-  //     lessLoaderOptions: {
-  //       lessOptions: {
-  //         modifyVars: {
-  //           "primary-color": "#f37c61",
-  //           "link-color": "#f37c61",
-  //           "border-radius-base": "2px",
-  //         },
-  //         javascriptEnabled: true,
-  //       },
-  //     },
-  //   })
-  // );
-  const [message, setMessage] = useState([]);
-  useEffect(() => {
-    fetch("/hello")
-      .then((response) => {
-        return response.json();
-      })
-      .then(function (data) {
-        setMessage(data);
-      });
-  }, []);
+  // const [message, setMessage] = useState([]);
+  // useEffect(() => {
+  //   fetch("/hello")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then(function (data) {
+  //       setMessage(data);
+  //     });
+  // }, []);
   return (
     <>
-      <div className="App">
+      {/* <div className="App">
         <header className="App-header">
           <ul>
             {message.map((text, index) => (
@@ -48,7 +31,7 @@ function App() {
             ))}
           </ul>
         </header>
-      </div>
+      </div> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />

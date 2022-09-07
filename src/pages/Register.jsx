@@ -50,7 +50,6 @@ const Register = () => {
   const [form] = Form.useForm();
   let navigate = useNavigate();
   const Finish = (values) => {
-    // //회원가입 정보 보내기 (일단 백 서버 연동하면 다시 확인 필요)
     // console.log("Received values of form: ", values);
     // fetch("http://192.168.56.1:8080/register", {
     //   method: "POST",
@@ -59,39 +58,21 @@ const Register = () => {
     //   .then((response) => response.json())
     //   .then((result) => console.log("결과: ", result));
 
-    axios.post("http://localhost:8080/signup", {
+    let data = {
       userId: values.nickname,
       password: values.password,
       email: values.email,
-    });
-    // .then(function (response) {
-    //   if (response.data.code === 0) {
-    //     setPopup({
-    //       open: true,
-    //       title: "Confirm",
-    //       message: "Join Success!",
-    //       callback: function () {
-    //         navigate("/login");
-    //       },
-    //     });
-    //   } else {
-    //     let message = response.data.message;
-    //     if (response.data.code === 10000) {
-    //       message =
-    //         "User ID is duplicated. Please enter a different User ID. ";
-    //     }
-    //     setPopup({
-    //       open: true,
-    //       title: "Error",
-    //       message: message,
-    //     });
-    //   }
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    };
+    axios
+      .post("http://localhost:8080/register", JSON.stringify(data))
+      .then(function (response) {
+        console.log("응답!");
+      })
+      .catch(function (error) {
+        console.log("오류!");
+      });
 
-    navigate("/");
+    navigate("/login");
   };
 
   return (
