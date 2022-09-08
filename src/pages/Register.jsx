@@ -58,21 +58,30 @@ const Register = () => {
     //   .then((response) => response.json())
     //   .then((result) => console.log("결과: ", result));
 
-    let data = {
+    const data = {
       userId: values.nickname,
       password: values.password,
       email: values.email,
     };
     axios
-      .post("http://localhost:8080/register", JSON.stringify(data))
+      .post(
+        "/register",
+        JSON.stringify(data)
+        // , {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // }
+      )
       .then(function (response) {
         console.log("응답!");
       })
       .catch(function (error) {
         console.log("오류!");
+        console.log(JSON.stringify(data));
       });
 
-    // fetch("http://localhost:8080/register", {
+    // fetch("/register", {
     //   method: "post",
     //   body: JSON.stringify(data),
     //   headers: {
