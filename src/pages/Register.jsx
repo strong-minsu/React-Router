@@ -72,6 +72,21 @@ const Register = () => {
         console.log("오류!");
       });
 
+    // fetch("http://localhost:8080/register", {
+    //   method: "post",
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // }).then((response) => {
+    //   // 응답이 돌아오면 실행
+    //   // http 응답 코드에 따른 메세지 출력
+    //   const msg = response.ok ? "댓글이 등록되었습니다." : "댓글 등록 실패..";
+    //   alert(msg);
+
+    //   // 현재 페이지 새로고침
+    //   window.location.reload();
+    // });
     navigate("/login");
   };
 
